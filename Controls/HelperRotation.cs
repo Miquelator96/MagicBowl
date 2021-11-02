@@ -3,20 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HelperRotation : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		//Rotación automática
+		//Automatic rotation
 		transform.eulerAngles = transform.eulerAngles + new Vector3 (0, 1, 0);
 
-
-		//Cogemos orientación de la flecha para modificar posición de target usando trigonometria sabiendo que la distancia de disparo es aprox 4.9
+		//We get the joystic's arrow's orientation to modify the target's position usando trig, knowing that the shooting distance is aprox 4.9
 		Vector3 position = transform.position;
 
 		position.x = transform.parent.position.x + Mathf.Sin (transform.parent.eulerAngles.y / (180 / Mathf.PI))*4.9f;
